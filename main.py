@@ -10,4 +10,7 @@ async def send_welcome(message: types.Message):
 async def echo(message: types.Message):
    if message.text == 'Привет':
     await message.answer('Привет, '+str(message.from_user.first_name))
+@dp.message_handler(commands=['help'])
+async def send_welcome(message: types.Message):
+   await message.reply("Этот бот - дневник пищевого поведения.\n Здесь ты можешь вести записи о своем рационе в течение дня, а бот по запросу будет возвращать тебе отчет для терапевта.")
 executor.start_polling(dp, skip_updates=True)
